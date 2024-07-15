@@ -1,5 +1,11 @@
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
-        ans = s.strip().split(' ')
+        cnt = 0
 
-        return len(ans[-1])
+        for i in s[::-1]:
+            if i == ' ':
+                if cnt >= 1:
+                    return cnt
+            else:
+                cnt += 1
+        return cnt
