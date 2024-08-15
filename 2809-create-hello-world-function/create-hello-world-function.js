@@ -2,9 +2,7 @@
  * @return {Function}
  */
 
-const createHelloWorld = () => {
-    return (...args) => 'Hello World'
-}
+const createHelloWorld = () => (...args) => 'Hello World'
 
 // var createHelloWorld = function() {
 //     let a = 'Hello World'
