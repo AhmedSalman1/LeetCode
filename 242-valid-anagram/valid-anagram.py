@@ -1,12 +1,25 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
-            return False        
+            return False
         
-        s_hmap, t_hmap = {}, {}
-
+        count = [0] * 26
         for i in range(len(s)):
-            s_hmap[s[i]] = s_hmap.get(s[i], 0) + 1
-            t_hmap[t[i]] = t_hmap.get(t[i], 0) + 1
+            count[ord(s[i]) - ord('a')] += 1
+            count[ord(t[i]) - ord('a')] -= 1
 
-        return s_hmap == t_hmap    
+        for val in count:
+            if val != 0:
+                return False
+        return True
+        
+        # 2
+        # if len(s) != len(t):
+        #     return False
+
+        # countS, countT = {}, {}
+
+        # for i in range(len(s)):
+        #     countS[s[i]] = 1 + countS.get(s[i], 0)
+        #     countT[t[i]] = 1 + countT.get(t[i], 0)
+        # return countS == countT
